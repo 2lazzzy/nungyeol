@@ -1,0 +1,7 @@
+{
+  "name": "nungyeol",
+  "compatibility_date": "2026-11-19",
+  "assets": { "directory": "./dist" },
+  "routes": [{ "pattern": "nungyeol.2lazzzy.com", "custom_domain": true }],
+  "workers_dev": true
+}
