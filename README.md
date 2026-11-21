@@ -1,26 +1,36 @@
-# 눈결
+# Nungyeol
 
-웹캠에 비친 손가락으로 눈 입자를 움직이는 크리스마스 인터랙티브 아트입니다.
+Move your fingertip to draw a trail through 100,000 snow particles. Make a fist and the snow gathers into Santa riding a sleigh pulled by Rudolph, with “Merry Christmas” written above them in gold.
 
-- 데모: https://nungyeol.2lazzzy.com
-- 손 추적: MediaPipe Hand Landmarker (`public/hand_landmarker.task`)
-- 눈 입자 10만 개: WebGL 2, GLSL 셰이더로 매 프레임 위치와 속도 계산 (`src/field.glsl`, `src/simulation.ts`)
-- 화면: React, TypeScript, Three.js, React Three Fiber
+[Try Nungyeol in your browser](https://nungyeol.2lazzzy.com/)
 
-## 실행
+## Controls
 
-```bash
+- **Webcam** — Click or tap the scene and allow camera access. Move your index finger to guide the snow, or hold up one to five fingers for half a second to choose a shape.
+- **Mouse or touch** — Drag to guide the snow. Press and hold in one spot to see Santa’s sleigh.
+- **Keyboard** — Press `1` for a snowman, `2` for a tree, `3` for Rudolph, `4` for a gift, or `5` for a snowflake. Press `Esc` to release the shape.
+- **Music** — Open the music note to see the player, or press `M` to turn the radio on or off. The live broadcast comes from Christmas Hits Kerstradio via TuneIn. [Listen to the station](https://tunein.com/radio/Christmas-Hits-Kerstradio-s187220/)
+
+## How it works
+
+MediaPipe Hand Landmarker tracks your hand using a [local model](public/hand_landmarker.task). Camera frames stay in your browser. React, TypeScript, and React Three Fiber manage the Three.js scene. A [GLSL shader](src/field.glsl) updates each particle’s position and velocity on the GPU every frame through a [WebGL 2 simulation](src/simulation.ts).
+
+## Run locally
+
+```sh
 npm install
 npm run dev
 ```
 
-http://127.0.0.1:8138 을 열고 카메라를 허용하세요. 영상은 브라우저 안에서만 처리되고 어디에도 보내지 않습니다.
+Open [the local app](http://127.0.0.1:8138/) in a browser that supports WebGL 2.
 
-```bash
+### Test and build
+
+```sh
 npm test
 npm run build
 ```
 
-## 라이선스
+## License
 
-MIT
+[MIT](LICENSE)
